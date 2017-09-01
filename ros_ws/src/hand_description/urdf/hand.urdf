@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<robot name="test_robot">
+
+  <link name="palm">
+    <visual>
+      <origin xyz="2.5 0 0" rpy="0 0 0" />
+      <geometry>
+        <!--<mesh filename="package://hand_description/meshes/batman.STL" scale="1.0 1.0 1.0"/>-->
+        <box size="5 5 0.5" /> 
+     </geometry>
+    </visual>
+  </link>
+
+  <link name="index">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.5" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="1 0 0" rpy="0 1.5707 0" />
+      <geometry>
+        <cylinder radius="0.1" length="2.0"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="2 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.4" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="middle">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.5" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="1 0 0" rpy="0 1.5707 0" />
+      <geometry>
+        <cylinder radius="0.1" length="2.0"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="2 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.4" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="indexMCP" type="continuous">
+    <parent link="palm"/>
+    <child link="index"/>
+    <origin xyz="5 2 0" rpy="0 0 0" />
+    <axis xyz="0.0 1.0 0.0" />
+  </joint>
+
+  <joint name="middleMCP" type="continuous">
+    <parent link="palm"/>
+    <child link="middle"/>
+    <origin xyz="5 0 0" rpy="0 0 0" />
+    <axis xyz="0.0 1.0 0.0" />
+  </joint>
+</robot>
