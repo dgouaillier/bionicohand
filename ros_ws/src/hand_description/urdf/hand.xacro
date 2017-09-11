@@ -1,96 +1,92 @@
 <?xml version="1.0"?>
-<robot name="test_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="Bionico Hand" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <!-- GLOBAL Variable -->
 <xacro:property name="degToRad" value="${pi/180}" />
+<xacro:property name="PI_2" value="${pi/2}" />
 
 <!-- INDEX Position and Length-->
-<xacro:property name="index_Proximal_Lenght" value="40" />
-<xacro:property name="index_Middle_Lenght" value="36" />
-<xacro:property name="index_Distal_Lenght" value="30" />
-<xacro:property name="indexMcp_origin">
-  <origin xyz="90 25 -5" rpy="0 0 ${5.0*degToRad}" />
+<xacro:property name="Index_Proximal_Lenght" value="50" />
+<xacro:property name="Index_Middle_Lenght" value="28" />
+<xacro:property name="IndexMcp_origin">
+  <origin xyz="86 21 -2" rpy="0 0 ${3.0*degToRad}" />
 </xacro:property>
-<xacro:property name="indexPip_origin">
-  <origin xyz="${index_Proximal_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="IndexPip_origin">
+  <origin xyz="${Index_Proximal_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
-<xacro:property name="indexDip_origin">
-  <origin xyz="${index_Middle_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="IndexDip_origin">
+  <origin xyz="${Index_Middle_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
 
 <!-- MIDDLE Position and Length-->
-<xacro:property name="middle_Proximal_Lenght" value="44" />
-<xacro:property name="middle_Middle_Lenght" value="38" />
-<xacro:property name="middle_Distal_Lenght" value="32" />
-<xacro:property name="middleMcp_origin">
-  <origin xyz="100 0 0" rpy="0 0 0" />
+<xacro:property name="Middle_Proximal_Lenght" value="55" />
+<xacro:property name="Middle_Middle_Lenght" value="32" />
+<xacro:property name="MiddleMcp_origin">
+  <origin xyz="90 0 0" rpy="0 0 0" />
 </xacro:property>
-<xacro:property name="middlePip_origin">
-  <origin xyz="${middle_Proximal_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="MiddlePip_origin">
+  <origin xyz="${Middle_Proximal_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
-<xacro:property name="middleDip_origin">
-  <origin xyz="${middle_Middle_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="MiddleDip_origin">
+  <origin xyz="${Middle_Middle_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
 
 <!-- RING Position and Length-->
-<xacro:property name="ring_Proximal_Lenght" value="38" />
-<xacro:property name="ring_Middle_Lenght" value="34" />
-<xacro:property name="ring_Distal_Lenght" value="28" />
-<xacro:property name="ringMcp_origin">
-  <origin xyz="90 -25 -5" rpy="0 0 ${-5.0*degToRad}" />
+<xacro:property name="Ring_Proximal_Lenght" value="50" />
+<xacro:property name="Ring_Middle_Lenght" value="31" />
+<xacro:property name="RingMcp_origin">
+  <origin xyz="84 -21 -2" rpy="0 0 ${-3.0*degToRad}" />
 </xacro:property>
-<xacro:property name="ringPip_origin">
-  <origin xyz="${ring_Proximal_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="RingPip_origin">
+  <origin xyz="${Ring_Proximal_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
-<xacro:property name="ringDip_origin">
-  <origin xyz="${ring_Middle_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="RingDip_origin">
+  <origin xyz="${Ring_Middle_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
 
 <!-- PINKY Position and Length-->
-<xacro:property name="pinky_Proximal_Lenght" value="36" />
-<xacro:property name="pinky_Middle_Lenght" value="32" />
-<xacro:property name="pinky_Distal_Lenght" value="26" />
-<xacro:property name="pinkyMcp_origin">
-  <origin xyz="85 -50 -7" rpy="0 0 ${-10.0*degToRad}" />
+<xacro:property name="Pinky_Proximal_Lenght" value="38" />
+<xacro:property name="Pinky_Middle_Lenght" value="25" />
+<xacro:property name="PinkyMcp_origin">
+  <origin xyz="76 -39 -5" rpy="0 0 ${-6.0*degToRad}" />
 </xacro:property>
-<xacro:property name="pinkyPip_origin">
-  <origin xyz="${pinky_Proximal_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="PinkyPip_origin">
+  <origin xyz="${Pinky_Proximal_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
-<xacro:property name="pinkyDip_origin">
-  <origin xyz="${pinky_Middle_Lenght} 0 0" rpy="0 0 0" />
+<xacro:property name="PinkyDip_origin">
+  <origin xyz="${Pinky_Middle_Lenght} 0 0" rpy="0 0 0" />
 </xacro:property>
 
 <!-- THUMB Position and Length-->
-<xacro:property name="thumb_MetaCarpal_Lenght" value="40" />
-<xacro:property name="thumb_Proximal_Lenght" value="36" />
-<xacro:property name="thumb_Distal_Lenght" value="26" />
+<xacro:property name="Thumb_MetaCarpal_Lenght" value="40" />
+<xacro:property name="Thumb_Proximal_Lenght" value="36" />
 
 
 <!-- FINGER LINK Macro-->
-<xacro:macro name="finger_link" params="fingerName proximalLength middleLength distalLength">
+<xacro:macro name="finger_link" params="fingerName">
   <link name="${fingerName}_Proximal">
     <visual>
-      <origin xyz="${proximalLength/2} 0 0" rpy="0 1.5707 0" />
+      <origin xyz="0 0 0" rpy="${PI_2} 0 0" />
       <geometry>
-        <cylinder radius="10" length="${proximalLength}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Proximal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
 
   <link name="${fingerName}_Middle">
     <visual>
-      <origin xyz="${middleLength/2} 0 0" rpy="0 1.5707 0" />
+      <origin xyz="0 0 0" rpy="${PI_2} 0 0" />
       <geometry>
-        <cylinder radius="9" length="${middleLength}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Middle.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
 
   <link name="${fingerName}_Distal">
     <visual>
-      <origin xyz="${distalLength/2} 0 0" rpy="0 1.5707 0" />
+      <origin xyz="0 0 0" rpy="${PI_2} 0 0" />
       <geometry>
-        <cylinder radius="8" length="${distalLength}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Distal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
@@ -123,47 +119,46 @@
 <!-- PALM LINK-->
   <link name="palm">
     <visual>
-      <origin xyz="50 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <!--<mesh filename="package://hand_description/meshes/batman.STL" scale="1.0 1.0 1.0"/>-->
-        <box size="100 70 20" /> 
+        <mesh filename="package://hand_description/meshes/MHK_01_Palm.STL" scale="1.0 1.0 1.0"/>
      </geometry>
     </visual>
   </link>
 
 <!-- FINGER LINK-->
-  <xacro:finger_link fingerName="index" proximalLength="${index_Proximal_Lenght}" middleLength="${index_Middle_Lenght}" distalLength="${index_Distal_Lenght}"/>
-  <xacro:finger_link fingerName="middle" proximalLength="${middle_Proximal_Lenght}" middleLength="${middle_Middle_Lenght}" distalLength="${middle_Distal_Lenght}"/>
-  <xacro:finger_link fingerName="ring" proximalLength="${ring_Proximal_Lenght}" middleLength="${ring_Middle_Lenght}" distalLength="${ring_Distal_Lenght}"/>
-  <xacro:finger_link fingerName="pinky" proximalLength="${pinky_Proximal_Lenght}" middleLength="${pinky_Middle_Lenght}" distalLength="${pinky_Distal_Lenght}"/>
+  <xacro:finger_link fingerName="Index"/>
+  <xacro:finger_link fingerName="Middle"/>
+  <xacro:finger_link fingerName="Ring"/>
+  <xacro:finger_link fingerName="Pinky"/>
   
 <!-- FINGER JOINTS-->
-  <xacro:finger_joint fingerName="index">
-    <xacro:insert_block name="indexMcp_origin" />
-    <xacro:insert_block name="indexPip_origin" />
-    <xacro:insert_block name="indexDip_origin" />
+  <xacro:finger_joint fingerName="Index">
+    <xacro:insert_block name="IndexMcp_origin" />
+    <xacro:insert_block name="IndexPip_origin" />
+    <xacro:insert_block name="IndexDip_origin" />
   </xacro:finger_joint>
 
-  <xacro:finger_joint fingerName="middle">
-    <xacro:insert_block name="middleMcp_origin" />
-    <xacro:insert_block name="middlePip_origin" />
-    <xacro:insert_block name="middleDip_origin" />
+  <xacro:finger_joint fingerName="Middle">
+    <xacro:insert_block name="MiddleMcp_origin" />
+    <xacro:insert_block name="MiddlePip_origin" />
+    <xacro:insert_block name="MiddleDip_origin" />
   </xacro:finger_joint>
 
-  <xacro:finger_joint fingerName="ring">
-    <xacro:insert_block name="ringMcp_origin" />
-    <xacro:insert_block name="ringPip_origin" />
-    <xacro:insert_block name="ringDip_origin" />
+  <xacro:finger_joint fingerName="Ring">
+    <xacro:insert_block name="RingMcp_origin" />
+    <xacro:insert_block name="RingPip_origin" />
+    <xacro:insert_block name="RingDip_origin" />
   </xacro:finger_joint>
 
-  <xacro:finger_joint fingerName="pinky">
-    <xacro:insert_block name="pinkyMcp_origin" />
-    <xacro:insert_block name="pinkyPip_origin" />
-    <xacro:insert_block name="pinkyDip_origin" />
+  <xacro:finger_joint fingerName="Pinky">
+    <xacro:insert_block name="PinkyMcp_origin" />
+    <xacro:insert_block name="PinkyPip_origin" />
+    <xacro:insert_block name="PinkyDip_origin" />
   </xacro:finger_joint>
 
-<!-- THUMB LINK-->
-  <link name="thumb_Carpal">
+<!-- THUMB LINK -->
+  <link name="Thumb_Carpal">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -172,59 +167,59 @@
     </visual>
   </link>
 
-  <link name="thumb_MetaCarpal">
+  <link name="Thumb_MetaCarpal">
     <visual>
-      <origin xyz="0 0 -${thumb_MetaCarpal_Lenght/2}" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 ${PI_2} 0" />
       <geometry>
-        <cylinder radius="12" length="${thumb_MetaCarpal_Lenght}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_Thumb_MetaCarpal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
 
-  <link name="thumb_Proximal">
+  <link name="Thumb_Proximal">
     <visual>
-      <origin xyz="0 0 -${thumb_Proximal_Lenght/2}" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 ${PI_2} 0" />
       <geometry>
-        <cylinder radius="11" length="${thumb_Proximal_Lenght}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_Thumb_Proximal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
 
-  <link name="thumb_Distal">
+  <link name="Thumb_Distal">
     <visual>
-      <origin xyz="0 0 -${thumb_Distal_Lenght/2}" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 ${PI_2} 0" />
       <geometry>
-        <cylinder radius="10" length="${thumb_Distal_Lenght}"/>
+        <mesh filename="package://hand_description/meshes/MHK_01_Thumb_Distal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
 
 <!-- THUMB JOINT -->
-  <joint name="thumbCarpal" type="continuous">
+  <joint name="ThumbCarpal" type="continuous">
     <parent link="palm"/>
-    <child link="thumb_Carpal"/>
-    <origin xyz="30 30 -20" rpy="0 0 ${150.0*degToRad}" />
+    <child link="Thumb_Carpal"/>
+    <origin xyz="25 19 -20" rpy="0 0 ${160.0*degToRad}" />
     <axis xyz="1.0 0.0 0.0" />
   </joint>
 
-  <joint name="thumbMcp" type="continuous">
-    <parent link="thumb_Carpal"/>
-    <child link="thumb_MetaCarpal"/>
+  <joint name="ThumbMcp" type="continuous">
+    <parent link="Thumb_Carpal"/>
+    <child link="Thumb_MetaCarpal"/>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0.0 1.0 0.0" />
   </joint>
 
-  <joint name="thumbPip" type="continuous">
-    <parent link="thumb_MetaCarpal"/>
-    <child link="thumb_Proximal"/>
-    <origin xyz="0 0 -${thumb_MetaCarpal_Lenght}" rpy="0 0 0" />
+  <joint name="ThumbPip" type="continuous">
+    <parent link="Thumb_MetaCarpal"/>
+    <child link="Thumb_Proximal"/>
+    <origin xyz="0 0 -${Thumb_MetaCarpal_Lenght}" rpy="0 0 0" />
     <axis xyz="0.0 1.0 0.0" />
   </joint>
 
-  <joint name="thumbDip" type="continuous">
-    <parent link="thumb_Proximal"/>
-    <child link="thumb_Distal"/>
-    <origin xyz="0 0 -${thumb_Proximal_Lenght}" rpy="0 0 0" />
+  <joint name="ThumbDip" type="continuous">
+    <parent link="Thumb_Proximal"/>
+    <child link="Thumb_Distal"/>
+    <origin xyz="0 0 -${Thumb_Proximal_Lenght}" rpy="0 0 0" />
     <axis xyz="0.0 1.0 0.0" />
   </joint>
 

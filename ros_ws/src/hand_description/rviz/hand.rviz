@@ -58,88 +58,88 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
+        Index_Distal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Index_Middle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Index_Proximal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         Link Tree Style: Links in Alphabetic Order
-        index_Distal:
+        Middle_Distal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        index_Middle:
+        Middle_Middle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        index_Proximal:
+        Middle_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        middle_Distal:
+        Palm:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        middle_Middle:
+        Pinky_Distal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        middle_Proximal:
+        Pinky_Middle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        palm:
+        Pinky_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        pinky_Distal:
+        Ring_Distal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        pinky_Middle:
+        Ring_Middle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        pinky_Proximal:
+        Ring_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ring_Distal:
+        Thumb_Carpal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ring_Middle:
+        Thumb_Distal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ring_Proximal:
+        Thumb_MetaCarpal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        thumb_Carpal:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thumb_Distal:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thumb_MetaCarpal:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thumb_Proximal:
+        Thumb_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -155,39 +155,39 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        index_Distal:
+        Index_Distal:
           Value: true
-        index_Middle:
+        Index_Middle:
           Value: true
-        index_Proximal:
+        Index_Proximal:
           Value: true
-        middle_Distal:
+        Middle_Distal:
           Value: true
-        middle_Middle:
+        Middle_Middle:
           Value: true
-        middle_Proximal:
+        Middle_Proximal:
           Value: true
-        palm:
+        Palm:
           Value: true
-        pinky_Distal:
+        Pinky_Distal:
           Value: true
-        pinky_Middle:
+        Pinky_Middle:
           Value: true
-        pinky_Proximal:
+        Pinky_Proximal:
           Value: true
-        ring_Distal:
+        Ring_Distal:
           Value: true
-        ring_Middle:
+        Ring_Middle:
           Value: true
-        ring_Proximal:
+        Ring_Proximal:
           Value: true
-        thumb_Carpal:
+        Thumb_Carpal:
           Value: true
-        thumb_Distal:
+        Thumb_Distal:
           Value: true
-        thumb_MetaCarpal:
+        Thumb_MetaCarpal:
           Value: true
-        thumb_Proximal:
+        Thumb_Proximal:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -195,28 +195,7 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        palm:
-          index_Proximal:
-            index_Middle:
-              index_Distal:
-                {}
-          middle_Proximal:
-            middle_Middle:
-              middle_Distal:
-                {}
-          pinky_Proximal:
-            pinky_Middle:
-              pinky_Distal:
-                {}
-          ring_Proximal:
-            ring_Middle:
-              ring_Distal:
-                {}
-          thumb_Carpal:
-            thumb_MetaCarpal:
-              thumb_Proximal:
-                thumb_Distal:
-                  {}
+        {}
       Update Interval: 0
       Value: true
   Enabled: true
