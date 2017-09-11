@@ -8,7 +8,7 @@ Panels:
         - /Status1
         - /RobotModel1
       Splitter Ratio: 0.5
-    Tree Height: 747
+    Tree Height: 359
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -59,17 +59,87 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        index:
+        index_Distal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        middle:
+        index_Middle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        index_Proximal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        middle_Distal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        middle_Middle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        middle_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         palm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pinky_Distal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pinky_Middle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pinky_Proximal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_Distal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_Middle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_Proximal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_Carpal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_Distal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_MetaCarpal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_Proximal:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -85,11 +155,39 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        index:
+        index_Distal:
           Value: true
-        middle:
+        index_Middle:
+          Value: true
+        index_Proximal:
+          Value: true
+        middle_Distal:
+          Value: true
+        middle_Middle:
+          Value: true
+        middle_Proximal:
           Value: true
         palm:
+          Value: true
+        pinky_Distal:
+          Value: true
+        pinky_Middle:
+          Value: true
+        pinky_Proximal:
+          Value: true
+        ring_Distal:
+          Value: true
+        ring_Middle:
+          Value: true
+        ring_Proximal:
+          Value: true
+        thumb_Carpal:
+          Value: true
+        thumb_Distal:
+          Value: true
+        thumb_MetaCarpal:
+          Value: true
+        thumb_Proximal:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -98,10 +196,27 @@ Visualization Manager:
       Show Names: true
       Tree:
         palm:
-          index:
-            {}
-          middle:
-            {}
+          index_Proximal:
+            index_Middle:
+              index_Distal:
+                {}
+          middle_Proximal:
+            middle_Middle:
+              middle_Distal:
+                {}
+          pinky_Proximal:
+            pinky_Middle:
+              pinky_Distal:
+                {}
+          ring_Proximal:
+            ring_Middle:
+              ring_Distal:
+                {}
+          thumb_Carpal:
+            thumb_MetaCarpal:
+              thumb_Proximal:
+                thumb_Distal:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -128,25 +243,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 52.9854393
+      Distance: 310.523224
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -20.0164852
-        Y: -27.2684002
-        Z: -8.99383163
+        X: 66.3027115
+        Y: 62.1679306
+        Z: -47.305069
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.245398074
+      Pitch: 0.359796822
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.840399861
+      Yaw: 1.89540935
     Saved: ~
 Window Geometry:
   Displays:

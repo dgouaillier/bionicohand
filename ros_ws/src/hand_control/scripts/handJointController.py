@@ -21,6 +21,7 @@ from sensor_msgs.msg import JointState
 from std_msgs.msg import Header
 
 degToRad = 3.14/180
+fingerDip = 15.0 * degToRad
 
 
 class handJointController(QWidget, QThread):
@@ -32,8 +33,9 @@ class handJointController(QWidget, QThread):
         self.initUI()
 
         self.inc = 0
-        self.index = 0.0
-        self.middle = 0.0
+        self.jointMcp = 0.0
+        self.thumbCarpal = 0.0
+        self.thumbMcp = 0.0
 
         self.timer = QTimer()
         self.timer.timeout.connect(self.publishJointState)
@@ -44,8 +46,17 @@ class handJointController(QWidget, QThread):
             joint_state = JointState()
             joint_state.header = Header()
             joint_state.header.stamp = rospy.Time.now()
-            joint_state.name = ['indexMCP', 'middleMCP']
-            joint_state.position = [self.index * degToRad, self.middle * degToRad]
+            joint_state.name = ['indexMcp'   , 'indexPip' , 'indexDip' ,
+                                'middleMcp'  , 'middlePip', 'middleDip',
+                                'ringMcp'    , 'ringPip'  , 'ringDip'  ,
+                                'pinkyMcp'   , 'pinkyPip' , 'pinkyDip' ,
+                                'thumbCarpal', 'thumbMcp' , 'thumbPip' , 'thumbDip'
+                                ]
+            joint_state.position = [self.jointMcp, self.jointMcp, fingerDip,
+                                    self.jointMcp, self.jointMcp, fingerDip,
+                                    self.jointMcp, self.jointMcp, fingerDip,
+                                    self.jointMcp, self.jointMcp, fingerDip,
+                                    -self.thumbCarpal, self.thumbMcp, self.thumbMcp, fingerDip]
             joint_state.velocity = []
             joint_state.effort = []
 
@@ -56,44 +67,59 @@ class handJointController(QWidget, QThread):
     def closeEvent(self, event):
         self.timer.stop()
 
-    def indexValue(self):
-        self.index = float(self.indexMcp_slider.value())
+    def fingerValue(self):
+        self.jointMcp = float(self.fingerMcp_slider.value()) * degToRad
 
-    def middleValue(self):
-        self.middle = float(self.middleMcp_slider.value())
+    def thumbCarpalValue(self):
+        self.thumbCarpal = float(self.thumbCarpal_slider.value()) * degToRad
+
+    def thumbMcpValue(self):
+        self.thumbMcp = float(self.thumbMcp_slider.value()) * degToRad
 
     def initROS(self):
         self.pub = rospy.Publisher('joint_states', JointState, queue_size=1)
         rospy.init_node('joint_state_publisher', anonymous=True)
 
     def initUI(self):
-        indexMcp = QLabel('Index MCP Joint')
-        self.indexMcp_slider = QSlider(Qt.Horizontal)
-        self.indexMcp_slider.setMinimum(00)
-        self.indexMcp_slider.setMaximum(90)
-        self.indexMcp_slider.setValue(0)
-        self.indexMcp_slider.setTickPosition(QSlider.TicksBelow)
-        self.indexMcp_slider.setTickInterval(5)
+        fingerMcp = QLabel('Finger MCP Joint')
+        self.fingerMcp_slider = QSlider(Qt.Horizontal)
+        self.fingerMcp_slider.setMinimum(00)
+        self.fingerMcp_slider.setMaximum(90)
+        self.fingerMcp_slider.setValue(0)
+        self.fingerMcp_slider.setTickPosition(QSlider.TicksBelow)
+        self.fingerMcp_slider.setTickInterval(5)
 
-        self.indexMcp_slider.valueChanged.connect(self.indexValue)
+        self.fingerMcp_slider.valueChanged.connect(self.fingerValue)
 
-        middleMcp = QLabel('Middle MCP Joint')
-        self.middleMcp_slider = QSlider(Qt.Horizontal)
-        self.middleMcp_slider.setMinimum(00)
-        self.middleMcp_slider.setMaximum(90)
-        self.middleMcp_slider.setValue(0)
-        self.middleMcp_slider.setTickPosition(QSlider.TicksBelow)
-        self.middleMcp_slider.setTickInterval(5)
+        thumbCarpal = QLabel('Thumb Carpal Joint')
+        self.thumbCarpal_slider = QSlider(Qt.Horizontal)
+        self.thumbCarpal_slider.setMinimum(00)
+        self.thumbCarpal_slider.setMaximum(90)
+        self.thumbCarpal_slider.setValue(0)
+        self.thumbCarpal_slider.setTickPosition(QSlider.TicksBelow)
+        self.thumbCarpal_slider.setTickInterval(5)
 
-        self.middleMcp_slider.valueChanged.connect(self.middleValue)
+        self.thumbCarpal_slider.valueChanged.connect(self.thumbCarpalValue)
+
+        thumbMcp = QLabel('Thumb Mcp Joint')
+        self.thumbMcp_slider = QSlider(Qt.Horizontal)
+        self.thumbMcp_slider.setMinimum(00)
+        self.thumbMcp_slider.setMaximum(90)
+        self.thumbMcp_slider.setValue(0)
+        self.thumbMcp_slider.setTickPosition(QSlider.TicksBelow)
+        self.thumbMcp_slider.setTickInterval(5)
+
+        self.thumbMcp_slider.valueChanged.connect(self.thumbMcpValue)
 
         grid = QGridLayout()
         grid.setSpacing(10)
 
-        grid.addWidget(indexMcp, 1, 0)
-        grid.addWidget(self.indexMcp_slider, 1, 1)
-        grid.addWidget(middleMcp, 2, 0)
-        grid.addWidget(self.middleMcp_slider, 2, 1)
+        grid.addWidget(fingerMcp, 1, 0)
+        grid.addWidget(self.fingerMcp_slider, 1, 1)
+        grid.addWidget(thumbCarpal, 2, 0)
+        grid.addWidget(self.thumbCarpal_slider, 2, 1)
+        grid.addWidget(thumbMcp, 3, 0)
+        grid.addWidget(self.thumbMcp_slider, 3, 1)
 
         self.setLayout(grid)
 
