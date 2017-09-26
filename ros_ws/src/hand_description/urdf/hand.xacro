@@ -6,10 +6,10 @@
 <xacro:property name="PI_2" value="${pi/2}" />
 
 <!-- INDEX Position and Length-->
-<xacro:property name="Index_Proximal_Lenght" value="50" />
+<xacro:property name="Index_Proximal_Lenght" value="44" />
 <xacro:property name="Index_Middle_Lenght" value="28" />
 <xacro:property name="IndexMcp_origin">
-  <origin xyz="86 21 -2" rpy="0 0 ${3.0*degToRad}" />
+  <origin xyz="86 23 -4" rpy="${-2.5*degToRad} 0 ${3.0*degToRad}" />
 </xacro:property>
 <xacro:property name="IndexPip_origin">
   <origin xyz="${Index_Proximal_Lenght} 0 0" rpy="0 0 0" />
@@ -19,10 +19,10 @@
 </xacro:property>
 
 <!-- MIDDLE Position and Length-->
-<xacro:property name="Middle_Proximal_Lenght" value="55" />
+<xacro:property name="Middle_Proximal_Lenght" value="47" />
 <xacro:property name="Middle_Middle_Lenght" value="32" />
 <xacro:property name="MiddleMcp_origin">
-  <origin xyz="90 0 0" rpy="0 0 0" />
+  <origin xyz="89 0 0" rpy="0 0 0" />
 </xacro:property>
 <xacro:property name="MiddlePip_origin">
   <origin xyz="${Middle_Proximal_Lenght} 0 0" rpy="0 0 0" />
@@ -32,10 +32,10 @@
 </xacro:property>
 
 <!-- RING Position and Length-->
-<xacro:property name="Ring_Proximal_Lenght" value="50" />
-<xacro:property name="Ring_Middle_Lenght" value="31" />
+<xacro:property name="Ring_Proximal_Lenght" value="44" />
+<xacro:property name="Ring_Middle_Lenght" value="28" />
 <xacro:property name="RingMcp_origin">
-  <origin xyz="84 -21 -2" rpy="0 0 ${-3.0*degToRad}" />
+  <origin xyz="88 -23 -6" rpy="${2.5*degToRad} 0 ${-3.0*degToRad}" />
 </xacro:property>
 <xacro:property name="RingPip_origin">
   <origin xyz="${Ring_Proximal_Lenght} 0 0" rpy="0 0 0" />
@@ -48,7 +48,7 @@
 <xacro:property name="Pinky_Proximal_Lenght" value="38" />
 <xacro:property name="Pinky_Middle_Lenght" value="25" />
 <xacro:property name="PinkyMcp_origin">
-  <origin xyz="76 -39 -5" rpy="0 0 ${-6.0*degToRad}" />
+  <origin xyz="78 -43 -9" rpy="${4.5*degToRad} 0 ${-6.0*degToRad}" />
 </xacro:property>
 <xacro:property name="PinkyPip_origin">
   <origin xyz="${Pinky_Proximal_Lenght} 0 0" rpy="0 0 0" />
@@ -58,9 +58,14 @@
 </xacro:property>
 
 <!-- THUMB Position and Length-->
-<xacro:property name="Thumb_MetaCarpal_Lenght" value="40" />
-<xacro:property name="Thumb_Proximal_Lenght" value="36" />
+<xacro:property name="Thumb_Carpal_Lenght" value="10" />
+<xacro:property name="Thumb_MetaCarpal_Lenght" value="35" />
+<xacro:property name="Thumb_Proximal_Lenght" value="38" />
 
+<!-- COLOR -->
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
 
 <!-- FINGER LINK Macro-->
 <xacro:macro name="finger_link" params="fingerName">
@@ -70,6 +75,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Proximal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -79,6 +85,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Middle.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -88,6 +95,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_${fingerName}_Distal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 </xacro:macro>
@@ -122,7 +130,8 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_Palm.STL" scale="1.0 1.0 1.0"/>
-     </geometry>
+      </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -162,7 +171,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <sphere radius="13"/>
+        <sphere radius="3"/>
       </geometry>
     </visual>
   </link>
@@ -173,6 +182,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_Thumb_MetaCarpal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -182,6 +192,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_Thumb_Proximal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -191,6 +202,7 @@
       <geometry>
         <mesh filename="package://hand_description/meshes/MHK_01_Thumb_Distal.STL" scale="1.0 1.0 1.0"/>
       </geometry>
+      <material name="white"/>
     </visual>
   </link>
 
@@ -198,14 +210,14 @@
   <joint name="ThumbCarpal" type="continuous">
     <parent link="palm"/>
     <child link="Thumb_Carpal"/>
-    <origin xyz="25 19 -20" rpy="0 0 ${160.0*degToRad}" />
+    <origin xyz="26 10 -26" rpy="0 0 ${165.0*degToRad}" />
     <axis xyz="1.0 0.0 0.0" />
   </joint>
 
   <joint name="ThumbMcp" type="continuous">
     <parent link="Thumb_Carpal"/>
     <child link="Thumb_MetaCarpal"/>
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 -${Thumb_Carpal_Lenght}" rpy="0 0 0" />
     <axis xyz="0.0 1.0 0.0" />
   </joint>
 
